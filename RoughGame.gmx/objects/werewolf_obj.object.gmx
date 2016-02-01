@@ -27,6 +27,11 @@
             <kind>1</kind>
             <string>direction = point_direction(x,y,400,400);
 mon_health = 20;
+mon_score = 50;
+if(global.roomnext &gt; 9 &amp;&amp; global.roomnext &lt; 20) {
+    mon_health *= 2;
+    mon_score *= 2;
+}
 motion_set(direction, 3);
 </string>
           </argument>
@@ -145,7 +150,7 @@ if(mon_health % 5 == 0) {
 }
 if(mon_health &lt;= 0) {
     instance_destroy();
-    score += 50;
+    score += mon_score;
     audio_play_sound(werewolf_hit,10,false);
 }
 with (other) { instance_destroy(); }

@@ -29,8 +29,8 @@
 menu[i] = "Return to Game";
 i++;
 
-if(score &gt;= 100) {
-    menu[i] = "Purchase Resurrection Potion";
+if(score &gt;= global.lives_cost) {
+    menu[i] = "Purchase Resurrection Potion(" + string(global.lives_cost) + ")";
     i++;
 }
 if (score &gt;= global.upgrade_cost) {
@@ -38,8 +38,19 @@ if (score &gt;= global.upgrade_cost) {
     i++;
 }
 if (score &gt;= global.stam_cost) {
-    menu[i] = "Purchase Stamina Upgrade (" + string(global.stam_cost);
+    menu[i] = "Purchase Stamina Upgrade (" + string(global.stam_cost) + ")";
     i++;
+}
+
+if (score &gt;= global.agil_cost) {
+    menu[i] = "Purchase Agility Upgrade (" + string(global.agil_cost) + ")";
+    i++;
+}
+
+if(global.roomnext &lt;= 9) {
+    draw_set_color(c_white);
+} else if(global.roomnext &gt; 9 &amp;&amp; global.roomnext &lt; 20) {
+    draw_set_color(c_navy);
 }
 
 space = 100;
@@ -74,8 +85,8 @@ var i = 0;
 menu[i] = "Return to Game";
 i++;
 
-if(score &gt;= 100) {
-    menu[i] = "Purchase Resurrection Potion";
+if(score &gt;= global.lives_cost) {
+    menu[i] = "Purchase Resurrection Potion(" + string(global.lives_cost) + ")";
     i++;
 }
 if (score &gt;= global.upgrade_cost) {
@@ -84,6 +95,11 @@ if (score &gt;= global.upgrade_cost) {
 }
 if (score &gt;= global.stam_cost) {
     menu[i] = "Purchase Stamina Upgrade (" + string(global.stam_cost) + ")";
+    i++
+}
+
+if (score &gt;= global.agil_cost) {
+    menu[i] = "Purchase Agility Upgrade (" + string(global.agil_cost) + ")";
     i++
 }
 
@@ -104,36 +120,9 @@ if (push == 1) {
             instance_destroy();
             break;
         }
-        case 1: {
-            score -= 100;
-            lives += 1;
+        default: {
+            purchase(menu,mpos);
             break;
-        } case 2: {
-            if(string_count("Purchase Arrow Upgrade", menu[2]) == 1) {
-                score -= global.upgrade_cost;
-                global.upgrade_cost = global.upgrade_cost * 2;
-                global.pwr += 1;
-                break;
-            } else if(string_count("Purchase Stamina Upgrade", menu[2]) == 1) {
-                score -= global.stam_cost;
-                global.stam_cost = global.stam_cost * 2;
-                global.stam_limit += 50;
-                global.stam_incr += .25;
-                break;
-            }
-        } case 3: {
-            if(string_count("Purchase Arrow Upgrade", menu[3]) == 1) {
-                score -= global.upgrade_cost;
-                global.upgrade_cost = global.upgrade_cost * 2;
-                global.pwr += 1;
-                break;
-            } else if(string_count("Purchase Stamina Upgrade", menu[3]) == 1) {
-                score -= global.stam_cost;
-                global.stam_cost = global.stam_cost * 2;
-                global.stam_limit += 50;
-                global.stam_incr += .25;
-                break;
-            }
         }
             
     }
@@ -166,7 +155,11 @@ if (push == 1) {
             <string>draw_set_halign(fa_middle);
 draw_set_valign(fa_middle)
 draw_set_font(spoopy_font);
-draw_set_color(c_white);
+if(global.roomnext &lt;= 9) {
+    draw_set_color(c_white);
+} else if(global.roomnext &gt; 9 &amp;&amp; global.roomnext &lt; 20) {
+    draw_set_color(c_navy);
+}
 
 var m;
 for(m = 0; m &lt; array_length_1d(menu); m += 1) {

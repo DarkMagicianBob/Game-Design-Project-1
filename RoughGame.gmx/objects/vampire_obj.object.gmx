@@ -5,19 +5,19 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>enemy_obj</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>101</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_move</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
@@ -25,11 +25,169 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>111101111</string>
+            <string>direction = point_direction(x,y,400,400);
+mon_health = 30;
+mon_score = 100;
+if(global.roomnext &gt; 9 &amp;&amp; global.roomnext &lt; 20) {
+    mon_health *= 2;
+    mon_score *= 2;
+}
+motion_set(direction, 1.5);
+timer = 200;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>211</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>vampire_spawn</sound>
           </argument>
           <argument>
-            <kind>0</kind>
-            <string>1.5</string>
+            <kind>3</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (instance_exists(player_obj)) {
+    image_angle = point_direction(x,y,player_obj.x,player_obj.y);
+    direction = point_direction(x,y,player_obj.x,player_obj.y);
+    if(player_obj.x &lt; x) {
+        image_yscale = -1;
+    } else {
+        image_yscale = 1;
+    }
+}
+timer -= 1;
+if(timer == 0 &amp;&amp; instance_exists(player_obj)) {
+    instance_create(x,y,fireball_obj);
+    fireball_obj.image_angle = point_direction(x,y,player_obj.x, player_obj.y);
+    fireball_obj.direction = point_direction(x,y,player_obj.x, player_obj.y);
+    timer = 200;
+} else if (timer == 0) {
+    instance_create(x,y,fireball_obj);
+    fireball_obj.image_angle = point_direction(x,y,400, 600);
+    fireball_obj.direction = point_direction(x,y,400, 600);
+    timer = 200;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="player_obj">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with (other) { instance_destroy(); }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="arrow_obj">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>mon_health -= global.pwr;
+teleport = irandom(2);
+if(teleport == 0) {
+    audio_play_sound(vampire_spawn,10,false);
+    teleport_x = random(800);
+    teleport_y = random(800);
+    while(abs(teleport_x-player_obj.x) &lt; 50 &amp;&amp; abs(teleport_y-player_obj.y) &lt; 50) {
+        teleport_x = random(800);
+        teleport_y = random(800);
+    }
+    x = teleport_x;
+    y = teleport_y;
+}
+if(mon_health &lt;= 0) {
+    instance_destroy();
+    score += mon_score;
+    audio_play_sound(vampire_death,10,false);
+}
+with (other) { instance_destroy(); }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>112</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_wrap</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>4</kind>
+            <string>2</string>
           </argument>
         </arguments>
       </action>

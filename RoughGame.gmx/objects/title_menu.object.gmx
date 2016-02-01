@@ -26,21 +26,41 @@
           <argument>
             <kind>1</kind>
             <string>globalvar pwr;
-pwr = 1;
+global.pwr = 1;
+
+globalvar spd;
+global.spd = 2;
+
+globalvar turn_speed;
+global.turn_speed = 2;
+
 lives = 3;
 score = 0;
+
 globalvar rooms;
 globalvar roomnext;
+
+globalvar lives_cost;
+global.lives_cost = 50;
+
 globalvar upgrade_cost;
 global.upgrade_cost = 200;
+
+globalvar agil_cost;
+global.agil_cost = 200;
+
 globalvar stam_cost;
 global.stam_cost = 200;
+
 globalvar stamina;
 global.stamina = 200;
+
 globalvar stam_limit;
 global.stam_limit = 200;
+
 globalvar stam_incr;
 global.stam_incr = 1;
+
 global.roomnext = 0;
 global.rooms[0] = room0;
 global.rooms[1] = room1;
@@ -50,6 +70,28 @@ global.rooms[4] = room4;
 global.rooms[5] = room5;
 global.rooms[6] = room6;
 global.rooms[7] = room7;
+global.rooms[8] = room8;
+global.rooms[9] = room9;
+global.rooms[10] = room10;
+global.rooms[11] = room11;
+global.rooms[12] = room12;
+global.rooms[13] = room13;
+global.rooms[14] = room14;
+global.rooms[15] = room15;
+global.rooms[16] = room16;
+global.rooms[17] = room17;
+global.rooms[18] = room18;
+global.rooms[19] = room19;
+global.rooms[20] = room20;
+global.rooms[21] = room21;
+global.rooms[22] = room22;
+global.rooms[23] = room23;
+global.rooms[24] = room24;
+global.rooms[25] = room25;
+global.rooms[26] = room26;
+global.rooms[27] = room27;
+global.rooms[28] = room28;
+global.rooms[29] = room29;
 </string>
           </argument>
         </arguments>
@@ -230,21 +272,22 @@ draw_set_valign(fa_middle);
     <event eventtype="9" enumb="13">
       <action>
         <libid>1</libid>
-        <id>224</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_another_room</functionname>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>11</kind>
-            <room>room0</room>
+            <kind>1</kind>
+            <string>room_goto(global.rooms[global.roomnext]);
+</string>
           </argument>
         </arguments>
       </action>

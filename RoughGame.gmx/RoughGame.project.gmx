@@ -5,6 +5,11 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
+    <sound>sound\ghost_death</sound>
+    <sound>sound\ghost_spawn</sound>
+    <sound>sound\gargoyle_spawn</sound>
+    <sound>sound\fire_spawn</sound>
+    <sound>sound\ice_sound</sound>
     <sound>sound\game_over_music</sound>
     <sound>sound\temp_music_2</sound>
     <sound>sound\temp_title_music</sound>
@@ -21,9 +26,14 @@
     <sound>sound\arrow_whish</sound>
     <sound>sound\werewolf_spawn</sound>
     <sound>sound\zombie_splat</sound>
-    <sound>sound\vampire_hit</sound>
   </sounds>
   <sprites name="sprites">
+    <sprite>sprites\fireball</sprite>
+    <sprite>sprites\ice_2</sprite>
+    <sprite>sprites\ice</sprite>
+    <sprite>sprites\ghost_boss_vuln</sprite>
+    <sprite>sprites\ghost_boss</sprite>
+    <sprite>sprites\gargoyle_boss</sprite>
     <sprite>sprites\larger_tombstone_2</sprite>
     <sprite>sprites\larger_tombstone</sprite>
     <sprite>sprites\zombie_small_frost</sprite>
@@ -45,10 +55,14 @@
     <sprite>sprites\zombie_head_small</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\background2</background>
-    <background>background\background1</background>
+    <background>background\world1_background</background>
+    <background>background\world2_background</background>
+    <background>background\world3_background</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\purchase.gml</script>
+  </scripts>
   <fonts name="fonts">
     <font>fonts\titlefont</font>
     <font>fonts\spoopy_font</font>
@@ -59,13 +73,26 @@
     <object>objects\game_over</object>
     <object>objects\level_display</object>
     <object>objects\arrow_obj</object>
+    <object>objects\invisible_lava</object>
     <object>objects\player_obj</object>
     <object>objects\enemy_obj</object>
-    <object>objects\zombie_head_obj</object>
+    <object>objects\fireball_obj</object>
+    <object>objects\fire_obj</object>
+    <object>objects\ice_obj</object>
+    <object>objects\zombie_head_frost_obj</object>
+    <object>objects\zombie_head_fire_obj</object>
     <object>objects\zombie_head_homing_obj</object>
+    <object>objects\ghost_boss_obj</object>
+    <object>objects\gargoyle_boss_obj</object>
     <object>objects\werewolf_obj</object>
+    <object>objects\vampire_obj</object>
+    <object>objects\zombie_head_obj</object>
     <object>objects\zombie_head_med_obj</object>
+    <object>objects\zombie_head_med_frost_obj</object>
+    <object>objects\zombie_head_med_fire_obj</object>
     <object>objects\zombie_head_small_obj</object>
+    <object>objects\zombie_head_small_frost_obj</object>
+    <object>objects\zombie_head_small_fire_obj</object>
     <object>objects\tombstone_obj</object>
     <object>objects\larger_tombstone_obj</object>
     <object>objects\larger_tombstone_2_obj</object>
@@ -81,6 +108,28 @@
     <room>rooms\room5</room>
     <room>rooms\room6</room>
     <room>rooms\room7</room>
+    <room>rooms\room8</room>
+    <room>rooms\room9</room>
+    <room>rooms\room10</room>
+    <room>rooms\room11</room>
+    <room>rooms\room12</room>
+    <room>rooms\room13</room>
+    <room>rooms\room14</room>
+    <room>rooms\room15</room>
+    <room>rooms\room16</room>
+    <room>rooms\room17</room>
+    <room>rooms\room18</room>
+    <room>rooms\room19</room>
+    <room>rooms\room20</room>
+    <room>rooms\room21</room>
+    <room>rooms\room22</room>
+    <room>rooms\room23</room>
+    <room>rooms\room24</room>
+    <room>rooms\room25</room>
+    <room>rooms\room26</room>
+    <room>rooms\room27</room>
+    <room>rooms\room28</room>
+    <room>rooms\room29</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

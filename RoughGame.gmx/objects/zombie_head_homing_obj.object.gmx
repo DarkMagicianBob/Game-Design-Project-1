@@ -27,7 +27,24 @@
             <kind>1</kind>
             <string>direction = point_direction(x,y,400,400);
 mon_health = 9;
+mon_score = 20;
+if(global.roomnext &gt; 9 &amp;&amp; global.roomnext &lt; 20) {
+    mon_health *= 2;
+    mon_score *= 2;
+} else if (global.roomnext &gt;= 20) {
+    mon_health *= 3;
+    mon_score *= 3;
+}
 motion_set(direction, 1.5);
+
+player_went_west = 0;
+player_went_east = 0;
+player_went_north = 0;
+player_went_south = 0;
+player_prev_x = 400;
+player_prev_y = 600;
+prev_x = x;
+prev_y = y;
 </string>
           </argument>
         </arguments>
@@ -50,7 +67,78 @@ motion_set(direction, 1.5);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_exists(player_obj)) {
+            <string>//New code for homing
+/*if (instance_exists(player_obj)) {
+    player_cur_x = player_obj.x;
+    player_cur_y = player_obj.y;
+    if(player_cur_x &lt; 0 &amp;&amp; player_prev_x &gt; 800) {
+        player_went_east = 1;
+        //show_debug_message("EAST");
+    }
+    else if (player_cur_x &gt; 800 &amp;&amp; player_prev_x &lt; 0) {
+        player_went_west = 1;
+        //show_debug_message("WEST");
+    }
+    else if (player_cur_y &lt; 0 &amp;&amp; player_prev_y &gt; 800) {
+        player_went_south = 1;
+        //show_debug_message("SOUTH");
+    }
+    else if (player_cur_y &gt; 800 &amp;&amp; player_prev_y &lt; 0) {
+        player_went_north = 1;
+        //show_debug_message("NORTH");
+    } 
+    if (player_went_north == 1 &amp;&amp; player_went_south == 1) {
+        player_went_north = 0;
+        player_went_south = 0;
+    }
+    if (player_went_east == 1 &amp;&amp; player_went_west == 1) {
+        player_went_west = 0;
+        player_went_south = 0;
+    }
+    if(player_went_east == 1 &amp;&amp; !(prev_x &gt; 800 &amp;&amp; x &lt; 0)) {
+        image_angle = point_direction(x,y,900,player_obj.y);
+        direction = point_direction(x,y,900,player_obj.y);
+    } else if (player_went_west == 1 &amp;&amp; !(prev_x &lt; 0 &amp;&amp; x &gt; 800)) {
+        image_angle = point_direction(x,y,-100,player_obj.y);
+        direction = point_direction(x,y,-100,player_obj.y);
+    }
+    //Unfortunately due to the fact that GML is retarded with looping,
+    //I have to make this ridiculous conditional statement 
+    else if (player_went_south == 1 &amp;&amp; 
+    !(
+    (prev_y &gt; 800 &amp;&amp; y &lt; 0) || 
+    (prev_y &gt; 800 &amp;&amp; (y &gt; 0 &amp;&amp; y &lt; 800))
+    )) {
+        image_angle = point_direction(x,y,player_obj.x,900);
+        direction = point_direction(x,y,player_obj.x,900);
+    } 
+    else if (player_went_north == 1 &amp;&amp; 
+    !(
+    (prev_y &lt; 0 &amp;&amp; y &gt; 800) || 
+    (prev_y &lt; 0 &amp;&amp; (y &lt; 800 &amp;&amp; y &gt; 0))
+    )) {
+        image_angle = point_direction(x,y,player_obj.x,-100);
+        direction = point_direction(x,y,player_obj.x,-100);
+    } else {
+        image_angle = point_direction(x,y,player_obj.x,player_obj.y);
+        direction = point_direction(x,y,player_obj.x,player_obj.y);
+        player_went_east = 0;
+        player_went_west = 0;
+        player_went_north = 0;
+        player_went_south = 0;
+        if(player_obj.x &lt; x) {
+            image_yscale = -1;
+        } else {
+            image_yscale = 1;
+        }
+    }
+    player_prev_x = player_obj.x;
+    player_prev_y = player_obj.y;
+    prev_x = x;
+    prev_y = y;
+}*/
+//Old code homing
+if (instance_exists(player_obj)) {
     image_angle = point_direction(x,y,player_obj.x,player_obj.y);
     direction = point_direction(x,y,player_obj.x,player_obj.y);
     if(player_obj.x &lt; x) {
@@ -85,7 +173,7 @@ motion_set(direction, 1.5);
 if(mon_health &lt;= 0) {
     instance_destroy();
     audio_play_sound(big_zombie_death,10,false);
-    score += 20;
+    score += mon_score;
 }
 with (other) { instance_destroy(); }
 </string>
@@ -114,7 +202,7 @@ with (other) { instance_destroy(); }
 if(mon_health &lt;= 0) {
     instance_destroy();
     audio_play_sound(big_zombie_death,10,false);
-    score += 20;
+    score += mon_score;
 }
 with (other) { instance_destroy(); }
 </string>

@@ -50,8 +50,14 @@ mon_health = 10;
           <argument>
             <kind>1</kind>
             <string>if (timer == 360) {
-    instance_create(x,y,zombie_head_obj);
-    audio_play_sound(spawn,10,false);
+    if(global.roomnext &lt;= 9) {
+        instance_create(x,y,zombie_head_obj);
+        audio_play_sound(spawn,10,false);
+    } else if (global.roomnext &gt; 9 &amp;&amp; global.roomnext &lt; 20) {
+        instance_create(x,y,zombie_head_frost_obj);
+        audio_play_sound(spawn,10,false);
+        audio_play_sound(ice_sound,10,false);
+    }
     timer = 0;
 } else {
     timer += 1;
