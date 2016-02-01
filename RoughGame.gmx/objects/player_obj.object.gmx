@@ -26,6 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>global.stamina = global.stam_limit;
+
+equiped_item = "";
+crossbow = instance_create(0, 0, crossbow_obj);
+machine_gun = instance_create(0, 0, machine_gun_obj);
+
+equiped_item = crossbow;
+
 </string>
           </argument>
         </arguments>
@@ -296,6 +303,52 @@ direction = direction + 2;
         </arguments>
       </action>
     </event>
+    <event eventtype="5" enumb="17">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//global.stamina -= 5
+show_debug_message(string(global.stamina));
+
+if(equiped_item.durability &gt; 0)
+{
+charge_item(self, equiped_item);
+}
+/*if(equiped_item.charge_capable == true)
+{
+    if(global.stamina &gt; equiped_item.charge_cost)
+    {
+        equiped_item.charge += (equiped_item.charge_rate / 60); // divide by 60 to convert from seconds to steps
+        charge_item(self, equiped_item);
+        global.stamina -= (equiped_item.charge_cost / 60) // convert per seconds to per steps
+    }
+    else
+    {
+        release_charge_item(self, equiped_item);
+    }
+}
+else
+{
+    show_debug_message("Cannot use charge on " + equiped_item.name);
+} */
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="0">
       <action>
         <libid>1</libid>
@@ -364,6 +417,102 @@ direction = direction + 2;
         </arguments>
       </action>
     </event>
+    <event eventtype="9" enumb="50">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(self.machine_gun)
+{
+    self.equiped_item = self.machine_gun;
+    show_debug_message("Machine Gun is now equiped.");
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="49">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Equips the crossbow
+
+    self.equiped_item = crossbow;
+    show_debug_message("Crossbow is now equiped.");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// "Recharge" item using "souls" (score)
+
+// sticking to the 100 magic number max for durablity at the moment
+if(equiped_item.durability &lt; equiped_item.durability_limit)
+{
+    if(score &gt;= equiped_item.soul_cost)
+    {
+        equiped_item.durability = equiped_item.durability_limit;
+        score -= equiped_item.soul_cost;
+    }
+    else
+    {
+        show_debug_message("Need " + string(equiped_item.soul_cost) + " souls for repair. Currently have " + string(score) + " souls.");
+    }
+}
+else
+{
+    show_debug_message(equiped_item.item_name + " is already fully repaired.");
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="9" enumb="13">
       <action>
         <libid>1</libid>
@@ -381,7 +530,7 @@ direction = direction + 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.stamina &gt;= 40) {
+            <string>/*if(global.stamina &gt;= 40) {
     shot_arrow = instance_create(x,y,arrow_obj);
     shot_arrow.speed = 20;
     shot_arrow.direction = image_angle;
@@ -389,6 +538,16 @@ direction = direction + 2;
     global.stamina-=40;
     audio_play_sound(arrow_whish,10,false);
 }
+*/
+
+// Need to also check if durability is greater than 0
+if((global.stamina &gt;= equiped_item.stamina_cost)and (equiped_item.durability &gt; 0))
+{
+    activate_item(self, equiped_item);
+    global.stamina -= equiped_item.stamina_cost; 
+    
+}
+
 </string>
           </argument>
         </arguments>
@@ -435,6 +594,31 @@ direction = direction + 2;
           <argument>
             <kind>1</kind>
             <string>motion_set(image_angle, 0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="17">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>show_debug_message("Released ctrl key");
+
+release_charge_item(self, self.equiped_item);
 </string>
           </argument>
         </arguments>

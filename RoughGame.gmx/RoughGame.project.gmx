@@ -49,6 +49,13 @@
     <background>background\background1</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\activate_machine_gun.gml</script>
+    <script>scripts\activate_item.gml</script>
+    <script>scripts\activate_crossbow.gml</script>
+    <script>scripts\projectile_collision.gml</script>
+    <script>scripts\charge_item.gml</script>
+  </scripts>
   <fonts name="fonts">
     <font>fonts\titlefont</font>
     <font>fonts\spoopy_font</font>
@@ -58,7 +65,6 @@
     <object>objects\title_menu</object>
     <object>objects\game_over</object>
     <object>objects\level_display</object>
-    <object>objects\arrow_obj</object>
     <object>objects\player_obj</object>
     <object>objects\enemy_obj</object>
     <object>objects\zombie_head_obj</object>
@@ -69,6 +75,16 @@
     <object>objects\tombstone_obj</object>
     <object>objects\larger_tombstone_obj</object>
     <object>objects\larger_tombstone_2_obj</object>
+    <objects name="Items">
+      <object>objects\item_obj</object>
+      <object>objects\machine_gun_obj</object>
+      <object>objects\crossbow_obj</object>
+    </objects>
+    <objects name="Projectiles">
+      <object>objects\arrow_obj</object>
+      <object>objects\projectile_obj</object>
+      <object>objects\bullet_obj</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\title_screen_room</room>
