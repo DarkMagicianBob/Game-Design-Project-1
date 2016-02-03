@@ -25,7 +25,7 @@ if(item.charge_capable == true)
                 }
                 break;
                 
-            case("Speed Boots"):
+            /*case("Speed Boots"):
                 //item.charge += (item.charge_rate / 60);
                 player_reference.speed = item.charge;
                 if(item.charge > item.charge_limit)
@@ -37,7 +37,7 @@ if(item.charge_capable == true)
                         item.durability = 0;
                     }
                 }
-                break;
+                break;*/
         
             default:
                 //item.charge += (item.charge_rate / 60); // divide by 60 to convert from seconds to steps
@@ -46,6 +46,10 @@ if(item.charge_capable == true)
                     item.charge = item.charge_limit;
                     effect_create_above(ef_explosion, player_reference.x, player_reference.y, 2, c_yellow);
                     
+                }
+                if(item.charge < 1)
+                {
+                    audio_play_sound(charge1,10,false);
                 }
                 show_debug_message(item.item_name + " charge: " + string(item.charge));
                 break;
@@ -79,7 +83,8 @@ switch(item.item_name)
             charged_arrow.speed /= (item.charge / item.charge_limit) * 4; // Arbitrary speed decrease by 2
             charged_arrow.image_xscale *= (item.charge / item.charge_limit) * 2.0; // Arbitrary size increase by 2
             charged_arrow.image_yscale *= (item.charge / item.charge_limit) * 2.0; // Arbitrary size increase by 2
-        } 
+        }
+        audio_stop_sound(charge1); 
         item.charge = 0;
         break;    
 

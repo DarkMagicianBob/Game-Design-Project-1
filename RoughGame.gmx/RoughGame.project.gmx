@@ -22,6 +22,10 @@
     <sound>sound\werewolf_spawn</sound>
     <sound>sound\zombie_splat</sound>
     <sound>sound\vampire_hit</sound>
+    <sounds name="16bit">
+      <sound>sound\charge1</sound>
+      <sound>sound\blink1</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\larger_tombstone_2</sprite>

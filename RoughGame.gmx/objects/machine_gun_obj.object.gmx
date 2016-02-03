@@ -37,6 +37,8 @@ stamina_cost = 40;
 consumable = false;
 
 type = "projectile"; // default type
+
+charge_limit = 1;
 </string>
           </argument>
         </arguments>
