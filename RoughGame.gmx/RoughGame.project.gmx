@@ -33,6 +33,8 @@
     <sound>sound\arrow_whish</sound>
     <sound>sound\werewolf_spawn</sound>
     <sound>sound\zombie_splat</sound>
+    <sound>sound\blink1</sound>
+    <sound>sound\charge1</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\final_boss</sprite>
@@ -74,6 +76,14 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\purchase.gml</script>
+    <script>scripts\activate_boots.gml</script>
+    <script>scripts\activate_crossbow.gml</script>
+    <script>scripts\activate_item.gml</script>
+    <script>scripts\activate_machine_gun.gml</script>
+    <script>scripts\activate_multi_shot.gml</script>
+    <script>scripts\charge_item.gml</script>
+    <script>scripts\projectile_collision.gml</script>
+    <script>scripts\recharge_item.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\titlefont</font>
@@ -86,7 +96,6 @@
     <object>objects\title_menu</object>
     <object>objects\game_over</object>
     <object>objects\level_display</object>
-    <object>objects\arrow_obj</object>
     <object>objects\invisible_lava</object>
     <object>objects\player_obj</object>
     <object>objects\enemy_obj</object>
@@ -111,6 +120,18 @@
     <object>objects\tombstone_obj</object>
     <object>objects\larger_tombstone_obj</object>
     <object>objects\obsidian_pillar_obj</object>
+    <objects name="items">
+      <object>objects\boots_object</object>
+      <object>objects\item_obj</object>
+      <object>objects\crossbow_obj</object>
+      <object>objects\multi_shot_weapon_obj</object>
+      <object>objects\machine_gun_obj</object>
+    </objects>
+    <objects name="projectiles">
+      <object>objects\projectile_obj</object>
+      <object>objects\bullet_obj</object>
+      <object>objects\arrow_obj</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\title_screen_room</room>

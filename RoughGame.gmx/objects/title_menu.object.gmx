@@ -68,6 +68,18 @@ global.stam_limit = 200;
 globalvar stam_incr;
 global.stam_incr = 1;
 
+// Item Declarations and Initialization
+globalvar crossbow;
+global.crossbow = instance_create(0, 0, crossbow_obj);
+globalvar machine_bow;
+global.machine_bow = instance_create(0, 0, machine_gun_obj);
+globalvar boots;
+global.boots = instance_create(0, 0, boots_object);
+globalvar mutli_shot;
+global.mutli_shot = instance_create(0, 0, multi_shot_weapon_obj);
+globalvar explosive;
+//global.explosive = instance_create(0, 0, machine_gun_obj);
+
 global.roomnext = 0;
 global.rooms[0] = room0;
 global.rooms[1] = room1;
