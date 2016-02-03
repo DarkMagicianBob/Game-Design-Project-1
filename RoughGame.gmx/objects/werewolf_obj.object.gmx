@@ -28,7 +28,7 @@
             <string>direction = point_direction(x,y,400,400);
 mon_health = 20;
 mon_score = 50;
-if(global.roomnext &gt; 9 &amp;&amp; global.roomnext &lt; 20) {
+if(global.roomnext &gt; 9) {
     mon_health *= 2;
     mon_score *= 2;
 }

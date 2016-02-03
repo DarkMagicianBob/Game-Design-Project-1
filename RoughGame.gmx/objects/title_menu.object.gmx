@@ -25,7 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>globalvar pwr;
+            <string>if(!audio_is_playing(temp_title_music)) {
+    audio_play_sound(temp_title_music,10,false);
+}
+keyboard_string = "";
+globalvar final_boss_fight_started;
+global.final_boss_fight_started = false;
+
+globalvar pwr;
 global.pwr = 1;
 
 globalvar spd;
@@ -92,31 +99,102 @@ global.rooms[26] = room26;
 global.rooms[27] = room27;
 global.rooms[28] = room28;
 global.rooms[29] = room29;
+global.rooms[30] = you_won_room;
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
-        <id>211</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_sound</functionname>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>6</kind>
-            <sound>temp_title_music</sound>
-          </argument>
-          <argument>
-            <kind>3</kind>
-            <string>0</string>
+            <kind>1</kind>
+            <string>//Level skip codes
+if(keyboard_string == "ice") {
+    global.pwr = 3;
+    global.spd = 2.5;
+    global.turn_speed = 3;
+    global.upgrade_cost = 800;
+    global.agil_cost = 800;
+    global.stam_cost = 800;
+    global.stamina = 300;
+    global.stam_limit = 300;
+    global.stam_incr = 1.5;
+    global.roomnext = 10;
+    audio_play_sound(ice_sound,10,false);
+    keyboard_string = "";
+}
+if(keyboard_string == "spectre") {
+    global.pwr = 4;
+    global.spd = 2.5;
+    global.turn_speed = 3;
+    global.upgrade_cost = 1600;
+    global.agil_cost = 800;
+    global.stam_cost = 800;
+    global.stamina = 300;
+    global.stam_limit = 300;
+    global.stam_incr = 1.5;
+    global.roomnext = 19;
+    audio_play_sound(ghost_spawn,10,false);
+    keyboard_string = "";
+}
+if(keyboard_string == "gargoyle") {
+    global.pwr = 2;
+    global.spd = 2.25;
+    global.turn_speed = 2.5;
+    global.upgrade_cost = 400;
+    global.agil_cost = 400;
+    global.stam_cost = 400;
+    global.stamina = 250;
+    global.stam_limit = 250;
+    global.stam_incr = 1.25;
+    global.roomnext = 9;
+    audio_play_sound(gargoyle_spawn,10,false);
+    keyboard_string = "";
+}
+if(keyboard_string == "fire") {
+    global.pwr = 4;
+    global.spd = 2.75;
+    global.turn_speed = 3.5;
+    global.upgrade_cost = 1600;
+    global.agil_cost = 1600;
+    global.stam_cost = 1600;
+    global.stamina = 350;
+    global.stam_limit = 350;
+    global.stam_incr = 1.75;
+    global.roomnext = 20;
+    audio_play_sound(fire_spawn,10,false);
+    keyboard_string = "";
+}
+
+if(keyboard_string == "brimstone") {
+    global.pwr = 5;
+    global.spd = 3;
+    global.turn_speed = 4;
+    global.upgrade_cost = 3200;
+    global.agil_cost = 3200;
+    global.stam_cost = 3200;
+    global.stamina = 400;
+    global.stam_limit = 400;
+    global.stam_incr = 2;
+    global.roomnext = 29;
+    audio_play_sound(demon_laugh_1,10,false);
+    keyboard_string = "";
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -160,59 +238,7 @@ draw_set_valign(fa_middle);
         <arguments>
           <argument>
             <kind>13</kind>
-            <string>255</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>526</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_font</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>12</kind>
-            <font>titlefont</font>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>1</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>514</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_text</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>-1</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>2</kind>
-            <string>CRIMSON ARROW</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
+            <string>128</string>
           </argument>
         </arguments>
       </action>
@@ -256,7 +282,7 @@ draw_set_valign(fa_middle);
         <arguments>
           <argument>
             <kind>2</kind>
-            <string>Press Enter</string>
+            <string>Press Enter to Start</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -265,6 +291,56 @@ draw_set_valign(fa_middle);
           <argument>
             <kind>0</kind>
             <string>100</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>514</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_text</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>-1</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>2</kind>
+            <string>Press SpaceBar for how to play</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>125</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>224</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_another_room</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>11</kind>
+            <room>instruction_room</room>
           </argument>
         </arguments>
       </action>

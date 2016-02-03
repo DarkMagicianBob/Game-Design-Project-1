@@ -27,6 +27,11 @@
             <kind>1</kind>
             <string>global.stamina = global.stam_limit;
 char_speed = global.spd;
+if(global.roomnext == 29 &amp;&amp; global.final_boss_fight_started == false) {
+    freeze_timer = 180;
+} else {
+    freeze_timer = 0;
+}
 </string>
           </argument>
         </arguments>
@@ -94,6 +99,10 @@ if (global.roomnext &gt; 9 &amp;&amp; global.roomnext &lt; 20) {
     else {
         char_speed = global.spd;
     }
+}
+if(global.roomnext == 29 &amp;&amp; freeze_timer &gt; 0) {
+    freeze_timer -=1;
+    global.final_boss_fight_started = true;
 }
 </string>
           </argument>
@@ -763,7 +772,9 @@ direction = direction + global.turn_speed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.stamina &gt;= 40) {
+            <string>if (global.roomnext == 29 &amp;&amp; freeze_timer != 0) {
+}
+else if(global.stamina &gt;= 40) {
     shot_arrow = instance_create(x,y,arrow_obj);
     shot_arrow.speed = 20;
     shot_arrow.direction = image_angle;

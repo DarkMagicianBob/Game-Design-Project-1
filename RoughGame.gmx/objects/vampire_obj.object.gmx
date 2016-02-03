@@ -97,8 +97,10 @@ if(timer == 0 &amp;&amp; instance_exists(player_obj)) {
     timer = 200;
 } else if (timer == 0) {
     instance_create(x,y,fireball_obj);
-    fireball_obj.image_angle = point_direction(x,y,400, 600);
-    fireball_obj.direction = point_direction(x,y,400, 600);
+    randomx = irandom(800);
+    randomy = irandom(800);
+    fireball_obj.image_angle = point_direction(x,y,randomx, randomy);
+    fireball_obj.direction = point_direction(x,y,randomx, randomy);
     timer = 200;
 }
 </string>
@@ -148,11 +150,11 @@ if(timer == 0 &amp;&amp; instance_exists(player_obj)) {
             <kind>1</kind>
             <string>mon_health -= global.pwr;
 teleport = irandom(2);
-if(teleport == 0) {
+if(teleport == 0 &amp;&amp; instance_exists(player_obj)) {
     audio_play_sound(vampire_spawn,10,false);
     teleport_x = random(800);
     teleport_y = random(800);
-    while(abs(teleport_x-player_obj.x) &lt; 50 &amp;&amp; abs(teleport_y-player_obj.y) &lt; 50) {
+    while(abs(teleport_x-player_obj.x) &lt; 100 &amp;&amp; abs(teleport_y-player_obj.y) &lt; 100) {
         teleport_x = random(800);
         teleport_y = random(800);
     }

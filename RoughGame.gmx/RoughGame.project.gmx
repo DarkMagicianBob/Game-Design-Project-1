@@ -5,6 +5,13 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
+    <sound>sound\demon_devour</sound>
+    <sound>sound\demon_countdown</sound>
+    <sound>sound\demon_laugh_5</sound>
+    <sound>sound\demon_laugh_4</sound>
+    <sound>sound\demon_laugh_3</sound>
+    <sound>sound\demon_laugh_2</sound>
+    <sound>sound\demon_laugh_1</sound>
     <sound>sound\ghost_death</sound>
     <sound>sound\ghost_spawn</sound>
     <sound>sound\gargoyle_spawn</sound>
@@ -28,6 +35,8 @@
     <sound>sound\zombie_splat</sound>
   </sounds>
   <sprites name="sprites">
+    <sprite>sprites\final_boss</sprite>
+    <sprite>sprites\obsidian_pillar</sprite>
     <sprite>sprites\fireball</sprite>
     <sprite>sprites\ice_2</sprite>
     <sprite>sprites\ice</sprite>
@@ -57,6 +66,9 @@
   <backgrounds name="background">
     <background>background\world1_background</background>
     <background>background\world2_background</background>
+    <background>background\you_won_text</background>
+    <background>background\title_screen</background>
+    <background>background\game_over_text</background>
     <background>background\world3_background</background>
   </backgrounds>
   <paths name="paths"/>
@@ -69,6 +81,8 @@
   </fonts>
   <objects name="objects">
     <object>objects\pause_menu</object>
+    <object>objects\end_of_game</object>
+    <object>objects\instructions</object>
     <object>objects\title_menu</object>
     <object>objects\game_over</object>
     <object>objects\level_display</object>
@@ -83,6 +97,7 @@
     <object>objects\zombie_head_fire_obj</object>
     <object>objects\zombie_head_homing_obj</object>
     <object>objects\ghost_boss_obj</object>
+    <object>objects\final_boss_obj</object>
     <object>objects\gargoyle_boss_obj</object>
     <object>objects\werewolf_obj</object>
     <object>objects\vampire_obj</object>
@@ -95,11 +110,13 @@
     <object>objects\zombie_head_small_fire_obj</object>
     <object>objects\tombstone_obj</object>
     <object>objects\larger_tombstone_obj</object>
-    <object>objects\larger_tombstone_2_obj</object>
+    <object>objects\obsidian_pillar_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\title_screen_room</room>
+    <room>rooms\you_won_room</room>
     <room>rooms\game_over_room</room>
+    <room>rooms\instruction_room</room>
     <room>rooms\room0</room>
     <room>rooms\room1</room>
     <room>rooms\room2</room>

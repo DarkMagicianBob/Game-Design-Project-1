@@ -16,6 +16,6 @@ if(string_count("Purchase Resurrection Potion", menu[pos]) == 1) {
 } else if(string_count("Purchase Agility Upgrade", menu[pos]) == 1) {
     score -= global.agil_cost;
     global.agil_cost *= 2;
-    global.spd += .5;
+    global.spd += .25;
     global.turn_speed += .5;
 }

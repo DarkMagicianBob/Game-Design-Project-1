@@ -27,6 +27,11 @@
             <kind>1</kind>
             <string>timer = 0;
 mon_health = 50;
+mon_score = 150;
+if(global.roomnext &gt; 9) {
+    mon_health *= 2;
+    mon_score *= 2;
+}
 </string>
           </argument>
         </arguments>
@@ -85,7 +90,7 @@ with(other) {
 if (mon_health &lt;= 0) {
     instance_destroy();
     audio_play_sound(tomb_collapse,10,false);
-    score+=150;
+    score+=mon_score;
 } else {
     audio_play_sound(hit_stone,10,false);
 }

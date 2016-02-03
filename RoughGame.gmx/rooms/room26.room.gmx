@@ -125,7 +125,6 @@
     <instance objName="invisible_lava" x="96" y="160" name="inst_19E5182B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="128" y="160" name="inst_2840FDBC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="32" y="96" name="inst_DD913D3E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="160" y="96" name="inst_1B37A36D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="160" y="128" name="inst_E4BDCF73" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="128" y="64" name="inst_98AA7832" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="640" y="128" name="inst_F2E998CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -184,9 +183,6 @@
     <instance objName="invisible_lava" x="800" y="640" name="inst_10388020" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="800" y="672" name="inst_132CF5DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="800" y="704" name="inst_57AF3B7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="320" y="64" name="inst_416EA625" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="288" y="64" name="inst_BBE9B6AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="256" y="32" name="inst_BD9FA299" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="352" y="96" name="inst_2E708EB2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="288" y="96" name="inst_19772A10" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="288" y="96" name="inst_3A163153" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -196,46 +192,12 @@
     <instance objName="invisible_lava" x="384" y="128" name="inst_6EF5696B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="416" y="96" name="inst_B38F0994" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="384" y="96" name="inst_4ADC8E1A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="384" y="64" name="inst_13C9DEBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="320" y="64" name="inst_056E8C82" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="352" y="64" name="inst_BE60802F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="416" y="96" name="inst_D3248DA4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="416" y="128" name="inst_A2373584" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="448" y="128" name="inst_C7729768" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="448" y="96" name="inst_3B86FC36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="416" y="32" name="inst_0EB5659B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="416" y="64" name="inst_41ABF49A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="448" y="64" name="inst_E3FE089E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="384" y="32" name="inst_3365CD5C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="352" y="0" name="inst_ED01D378" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="352" y="32" name="inst_2BD03F97" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="352" y="0" name="inst_FD67CCFB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="256" y="0" name="inst_569DD595" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="256" y="0" name="inst_9A123AFE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="256" y="64" name="inst_765745D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="288" y="32" name="inst_EA58B53D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="288" y="0" name="inst_D2039EB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="288" y="0" name="inst_91526F6A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="288" y="32" name="inst_F1EF07E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="320" y="32" name="inst_39B6DE55" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="288" y="0" name="inst_384B0035" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="320" y="0" name="inst_AF7416A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="384" y="0" name="inst_F01C9CB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="384" y="0" name="inst_D11D5B79" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="416" y="0" name="inst_0901164C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="448" y="0" name="inst_03B72420" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="448" y="32" name="inst_F8D9D228" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="480" y="0" name="inst_14871818" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="480" y="64" name="inst_C7DAC797" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="480" y="32" name="inst_CBF16561" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="480" y="64" name="inst_7206AC6C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="448" y="96" name="inst_51AAB6E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="480" y="96" name="inst_6B9635F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="512" y="32" name="inst_01BA7CDD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="512" y="64" name="inst_EDFFF10C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="544" y="32" name="inst_099E5D2C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="544" y="0" name="inst_E9B1C666" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="invisible_lava" x="512" y="0" name="inst_20DA48C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="768" y="96" name="inst_73CEA34B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="736" y="32" name="inst_D8AD87A4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="768" y="64" name="inst_8F40AD81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -246,6 +208,9 @@
     <instance objName="invisible_lava" x="800" y="128" name="inst_CC9E7C5B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="384" y="384" name="inst_F929B0C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="invisible_lava" x="0" y="736" name="inst_F1E3A0BD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ghost_boss_obj" x="224" y="192" name="inst_99CB0923" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ghost_boss_obj" x="544" y="192" name="inst_DB88FCF9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obsidian_pillar_obj" x="416" y="448" name="inst_7FEA3061" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
