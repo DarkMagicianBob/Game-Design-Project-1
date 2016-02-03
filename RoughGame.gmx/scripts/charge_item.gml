@@ -24,12 +24,28 @@ if(item.charge_capable == true)
                     }
                 }
                 break;
+                
+            case("Speed Boots"):
+                //item.charge += (item.charge_rate / 60);
+                player_reference.speed = item.charge;
+                if(item.charge > item.charge_limit)
+                {
+                    player_reference.speed = item.charge;
+                    item.durability -= item.durability_lost_rate;
+                    if(item.durability < 0)
+                    {
+                        item.durability = 0;
+                    }
+                }
+                break;
         
             default:
                 //item.charge += (item.charge_rate / 60); // divide by 60 to convert from seconds to steps
                 if(item.charge > item.charge_limit)
                 {
                     item.charge = item.charge_limit;
+                    effect_create_above(ef_explosion, player_reference.x, player_reference.y, 2, c_yellow);
+                    
                 }
                 show_debug_message(item.item_name + " charge: " + string(item.charge));
                 break;

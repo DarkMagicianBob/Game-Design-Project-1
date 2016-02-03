@@ -30,6 +30,8 @@
 equiped_item = "";
 crossbow = instance_create(0, 0, crossbow_obj);
 machine_gun = instance_create(0, 0, machine_gun_obj);
+multi_shot = instance_create(0, 0, multi_shot_weapon_obj);
+boots = instance_create(0, 0, boots_object);
 
 equiped_item = crossbow;
 
@@ -412,6 +414,60 @@ else
           <argument>
             <kind>1</kind>
             <string>motion_set(image_angle, -2);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="52">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(self.boots)
+{
+    self.equiped_item = self.boots;
+    show_debug_message("Speed boots is now equiped.");
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="51">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(self.multi_shot)
+{
+    self.equiped_item = self.multi_shot;
+    show_debug_message("Multi_Shot is now equiped.");
+}
 </string>
           </argument>
         </arguments>

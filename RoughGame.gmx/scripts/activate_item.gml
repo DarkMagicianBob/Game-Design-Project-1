@@ -13,8 +13,14 @@ switch(item.item_name)
     case("Crossbow"):
         activate_crossbow(player_reference, item);
         break;
+    case("Temp_Multi_Shot"):
+        activate_multi_shot(player_reference, item);
+        break;
     case ("Machine Gun"):
         activate_machine_gun(player_reference, item);
+        break;
+    case ("Speed Boots"):
+        activate_boots(player_reference, item);
         break;
 }
 

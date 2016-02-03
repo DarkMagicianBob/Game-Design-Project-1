@@ -28,12 +28,13 @@
             <string>// Initial Variables
 event_inherited();
 
-speed = 10;
+speed = 20;
 direction = 0;
 damage = 1;
 
+
 // other possible effects
-type = "knockback" // standard, knockback, explosion, debuff, etc
+type = "explosion" // standard, knockback, explosion, debuff, etc
 </string>
           </argument>
         </arguments>

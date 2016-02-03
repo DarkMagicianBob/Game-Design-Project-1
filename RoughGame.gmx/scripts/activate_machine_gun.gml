@@ -5,7 +5,7 @@ with(player_reference)
 {
     bullet = instance_create(x,y,bullet_obj);
     bullet.speed = 20;
-    bullet.damage = 0;
+    bullet.damage = 1;
     bullet.direction = image_angle;
     bullet.image_angle = self.image_angle;
     audio_play_sound(arrow_whish,10,false);

@@ -23,14 +23,18 @@ switch(projectile.type)
     case("explosion"):
         // create a radius around collision and do damage to everything in it
         // currently having an issue with accessing shared memory it seems
-        with(enemy_object)
+        
+        show_debug_message(string(instance_number(enemy_obj)));
+        for (i = 0; i < instance_number(enemy_obj); i += 1)
         {
-            if collision_circle(400, 400, 200, id, false, true)
+            enemy = instance_find(enemy_obj,i);
+            if (point_distance(enemy.x,enemy.y,projectile.x,projectile.y) < 1000)
                {
-               count += 1;
-               show_debug_message("Count of exploded objects: " + string(count));
+               enemy.mon_health -= projectile.damage;
+               show_debug_message("exploded enemy: " + string(enemy.id));
                }
         }
+        with (projectile) { instance_destroy();}
         break;
     
 }

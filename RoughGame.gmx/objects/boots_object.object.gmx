@@ -4,8 +4,8 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <persistent>0</persistent>
+  <parentName>item_obj</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,27 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// generic variables that may or may not be used
-
-item_name = ""; //Child object must have a specific name here
+            <string>
+event_inherited();
+item_name = "Speed Boots";
 
 soul_cost = 10; // cost of restoring durability
-durability = 100; // current durability of an item
-durability_lost_rate = 0; //rate of reducing durability
-durability_limit = 100; // Limit of how durable an item can be
-stamina_cost = 0; //Stanima cost of activating item (not charge cost)
-consumable = false; //probably won't need this ability with the repair cabability
+durability = 100;
+durability_lost_rate = 5; //rate of reducing durability
+durability_limit = 100;
+stamina_cost = 40;
+consumable = false;
 
-type = "projectile"; // default type
-
-charge_capable = true; // item has a charge ability (hold down key for some effect)
-charge_rate = 10; // Rate of charge charge increasing over time per second (will be adjusted to steps)
-charge_cost = 100; // cost of stamina per charge or second (will need to adjust it based off of steps)
-charge = 0; // current built up charge
-charge_limit = 10; //Limit of what charge can build up to
-
-
-
+type = "Use"; // use type
 </string>
           </argument>
         </arguments>

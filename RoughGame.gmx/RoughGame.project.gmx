@@ -55,6 +55,8 @@
     <script>scripts\activate_crossbow.gml</script>
     <script>scripts\projectile_collision.gml</script>
     <script>scripts\charge_item.gml</script>
+    <script>scripts\activate_multi_shot.gml</script>
+    <script>scripts\activate_boots.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\titlefont</font>
@@ -79,6 +81,8 @@
       <object>objects\item_obj</object>
       <object>objects\machine_gun_obj</object>
       <object>objects\crossbow_obj</object>
+      <object>objects\multi_shot_weapon_obj</object>
+      <object>objects\boots_object</object>
     </objects>
     <objects name="Projectiles">
       <object>objects\arrow_obj</object>
