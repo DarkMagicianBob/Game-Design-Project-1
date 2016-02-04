@@ -105,6 +105,16 @@ if (score &gt;= global.agil_cost) {
     i++
 }
 
+/*if (score &gt;= 1000) {
+    menu[i] = "Purchase Multi-Shot (1000)";
+    i++
+}
+
+if (score &gt;= 1000) {
+    menu[i] = "Purchase Machine-Bow (1000)";
+    i++
+}*/
+
 if(move != 0) {
 
     mpos += move;
@@ -118,11 +128,13 @@ push = max(keyboard_check_pressed(vk_enter), gamepad_button_check_pressed(0, gp_
 if (push == 1) {
     switch(mpos) {
         case 0: {
+            show_debug_message("case 0");
             instance_activate_all();
             instance_destroy();
             break;
         }
         default: {
+            show_debug_message("purchase");
             purchase(menu,mpos);
             break;
         }

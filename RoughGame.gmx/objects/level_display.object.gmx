@@ -184,6 +184,17 @@ draw_rectangle(x + 300 + stam_width + 150 * percent, y-25, x + 450 + stam_width,
 
 draw_set_color(c_white);
 draw_text(x+300+string_width("STAM: "), y, string(round(global.stamina)) + "/" + string(global.stam_limit));
+
+draw_set_color(c_red);
+draw_rectangle(x+400, y + 40, x + 500, y+45, false);
+draw_set_color(c_yellow);
+draw_rectangle(x+400,y + 40, x+400+machine_gun_obj.durability, y + 45, false);
+
+draw_set_color(c_red);
+draw_rectangle(x+400, y + 47, x+500, y+52, false);
+draw_set_color(c_teal);
+draw_rectangle(x+400, y + 47, x+400+multi_shot_weapon_obj.durability, y+52, false);
+
 if(global.roomnext &lt;= 9) {
     draw_set_color(c_white);
 } else if(global.roomnext &gt; 9 &amp;&amp; global.roomnext &lt; 20) {
@@ -196,7 +207,6 @@ draw_text(x+300,y,"STAM: ");
 //draw_text(x+300,y,"STAM: ");
 
 if(global.roomnext == 29 &amp;&amp; instance_number(final_boss_obj) == 1) {
-    show_debug_message("MOOSE");
     draw_set_color(c_red);
     var percent2 = round(final_boss_obj.mon_health)/666;
     draw_rectangle(0, 790, 800 * percent2, 800, false);

@@ -38,9 +38,11 @@ gamepad_set_button_threshold(0, 0.2);
 
 
 item_array[0] = global.crossbow; // Starts out with just the crossbow
-item_array[1] = global.boots;
+item_array[1] = global.multi_shot;
 item_array[2] = global.machine_bow;
 item_index = 0; // indexed for the crossbow
+
+l_trig_pressed = false;
 </string>
           </argument>
         </arguments>
@@ -346,10 +348,12 @@ if (r_trig == 0) {
     }
     
 if(l_trig == 1){
+    l_trig_pressed = true;
     charge_item(self, item_array[item_index]);
 }
 
-if(l_trig == 0){
+if(l_trig == 0 &amp;&amp; l_trig_pressed == true){
+    l_trig_pressed = false;
     release_charge_item(self, global.crossbow);
 }
 </string>
@@ -1535,6 +1539,30 @@ show_debug_message("item index: " + string(item_index));
         </arguments>
       </action>
     </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// use the boots
+activate_item(self, global.boots);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="9" enumb="16">
       <action>
         <libid>1</libid>
@@ -1581,7 +1609,7 @@ activate_item(self, item_array[item_index]);
             <string>if (global.roomnext == 29 &amp;&amp; freeze_timer != 0) {
     // do nothing
 }
-activate_item(self, item_array[item_index]);
+activate_item(self, global.crossbow);
 </string>
           </argument>
         </arguments>
@@ -1605,7 +1633,7 @@ activate_item(self, item_array[item_index]);
           <argument>
             <kind>1</kind>
             <string>show_debug_message("Released Ctrl key");
-release_charge_item(self, global.crossbow);
+release_charge_item(self, item_array[item_index]);
 </string>
           </argument>
         </arguments>

@@ -32,6 +32,12 @@ keyboard_string = "";
 globalvar final_boss_fight_started;
 global.final_boss_fight_started = false;
 
+globalvar multi_shot_enabled;
+global.multi_shot_enabled = false;
+
+globalvar machine_bow_enabled;
+global.machine_bow_enabled = false;
+
 globalvar invul_count;
 global.invul_count = 0;
 
@@ -78,8 +84,8 @@ globalvar machine_bow;
 global.machine_bow = instance_create(0, 0, machine_gun_obj);
 globalvar boots;
 global.boots = instance_create(0, 0, boots_obj);
-globalvar mutli_shot;
-global.mutli_shot = instance_create(0, 0, multi_shot_weapon_obj);
+globalvar multi_shot;
+global.multi_shot = instance_create(0, 0, multi_shot_weapon_obj);
 globalvar explosive;
 //global.explosive = instance_create(0, 0, machine_gun_obj);
 

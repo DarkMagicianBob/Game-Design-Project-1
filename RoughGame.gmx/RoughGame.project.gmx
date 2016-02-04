@@ -100,6 +100,7 @@
     <object>objects\pause_menu</object>
     <object>objects\end_of_game</object>
     <object>objects\instructions</object>
+    <object>objects\instructions2</object>
     <object>objects\title_menu</object>
     <object>objects\game_over</object>
     <object>objects\level_display</object>
@@ -147,6 +148,8 @@
     <room>rooms\you_won_room</room>
     <room>rooms\game_over_room</room>
     <room>rooms\instruction_room</room>
+    <room>rooms\instruction2_room</room>
+    <room>rooms\room34</room>
     <room>rooms\room0</room>
     <room>rooms\room1</room>
     <room>rooms\room2</room>
