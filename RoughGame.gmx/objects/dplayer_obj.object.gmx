@@ -38,7 +38,7 @@ gamepad_set_button_threshold(0, 0.2);
 
 
 item_array[0] = global.crossbow; // Starts out with just the crossbow
-item_array[1] = global.boots;
+item_array[1] = global.multi_shot;
 item_array[2] = global.machine_bow;
 item_index = 0; // indexed for the crossbow
 </string>
@@ -229,6 +229,10 @@ item_index = 0; // indexed for the crossbow
     global.stamina += global.stam_incr;
 }
 
+if (global.stamina &gt; global.stam_limit){
+    global.stamina = global.stam_limit;
+}
+
 if( keyboard_check_released(ord('W'))) {
     char_speed = global.spd;
 } else if (keyboard_check_released(ord('S'))) {
@@ -333,11 +337,45 @@ if((h_move != 0) || (v_move != 0))
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>var h_point = gamepad_axis_value(0 ,gp_axisrh);
+var v_point = gamepad_axis_value(0 ,gp_axisrv);
+
+if ((h_point != 0) || (v_point != 0))
+{
+var pdir = point_direction(0, 0, h_point, v_point);
+var dif = angle_difference(pdir, image_angle);
+image_angle += median(-20, dif, 20);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>var r_trig = gamepad_button_check(0, gp_shoulderrb);
 var l_trig = gamepad_button_check(0, gp_shoulderlb);
 
 if(global.stamina &gt;= 40 &amp;&amp; r_trig == 1 &amp;&amp; global.ready) {
-    activate_item(self, global.crossbow);
+    shot_arrow = instance_create(x,y,arrow_obj);
+    shot_arrow.speed = 20;
+    shot_arrow.direction = image_angle;
+    shot_arrow.image_angle = self.image_angle;
+    global.stamina-=30;
+    audio_play_sound(arrow_whish,10,false);
     global.ready = false;
 }
 
@@ -393,35 +431,6 @@ if (r_shoulder == 1){
 
 if (l_shoulder == 1){
     activate_item(self, boots_obj);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>var h_point = gamepad_axis_value(0 ,gp_axisrh);
-var v_point = gamepad_axis_value(0 ,gp_axisrv);
-
-if ((h_point != 0) || (v_point != 0))
-{
-var pdir = point_direction(0, 0, h_point, v_point);
-var dif = angle_difference(pdir, image_angle);
-image_angle += median(-20, dif, 20);
 }
 </string>
           </argument>

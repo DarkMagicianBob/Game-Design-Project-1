@@ -37,6 +37,7 @@ if(item.durability > 0)
 else
 {
     show_debug_message(string(item.item_name) + " is out of durability.");
+    audio_play_sound(hit_stone, 10, false);
 }
 
 

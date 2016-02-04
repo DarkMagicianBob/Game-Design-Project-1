@@ -33,7 +33,7 @@ soul_cost = 10; // cost of restoring durability
 durability = 100;
 durability_lost_rate = 5; //rate of reducing durability
 durability_limit = 100;
-stamina_cost = 40;
+stamina_cost = 80;
 consumable = false;
 
 type = "Use"; // use type

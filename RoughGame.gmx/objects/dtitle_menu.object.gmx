@@ -78,8 +78,8 @@ globalvar machine_bow;
 global.machine_bow = instance_create(0, 0, machine_gun_obj);
 globalvar boots;
 global.boots = instance_create(0, 0, boots_obj);
-globalvar mutli_shot;
-global.mutli_shot = instance_create(0, 0, multi_shot_weapon_obj);
+globalvar multi_shot;
+global.multi_shot = instance_create(0, 0, multi_shot_weapon_obj);
 globalvar explosive;
 //global.explosive = instance_create(0, 0, machine_gun_obj);
 
@@ -229,7 +229,7 @@ if(keyboard_string == "brimstone") {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(gamepad_button_check_pressed(0, gp_start)){
+            <string>if( gamepad_button_check_pressed(0, gp_start){
     room_goto(global.rooms[global.roomnext]);
     audio_stop_sound(temp_title_music);
 }

@@ -38,6 +38,8 @@
     <sound>sound\fire_stage_music</sound>
     <sound>sound\first_stage_music</sound>
     <sound>sound\ice_stage_music</sound>
+    <sound>sound\gun_shot</sound>
+    <sound>sound\hurt2</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\final_boss</sprite>
@@ -139,7 +141,6 @@
     </objects>
     <object>objects\stamina_potion_obj</object>
     <object>objects\health_potion_obj</object>
-    <object>objects\xplayer_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\title_screen_room</room>

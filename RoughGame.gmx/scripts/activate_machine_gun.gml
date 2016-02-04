@@ -9,8 +9,9 @@ with(player_reference)
     bullet.direction = image_angle;
     bullet.image_angle = self.image_angle;
     bullet.effect = true;
-    audio_play_sound(arrow_whish,10,false);
+    //audio_play_sound(arrow_whish,10,false);
     show_debug_message("durability: " + string(gun.durability));
+    audio_play_sound(gun_shot, 10, false);
 }
 return bullet;
 
