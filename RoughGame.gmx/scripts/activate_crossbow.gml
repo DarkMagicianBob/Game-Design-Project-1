@@ -6,6 +6,7 @@ with(player_reference)
     shot_arrow.speed = 20;
     shot_arrow.direction = image_angle;
     shot_arrow.image_angle = self.image_angle;
+    shot_arrow.projectile_power += global.pwr;
     audio_play_sound(arrow_whish,10,false);
     show_debug_message("durability: " + string(crossbow.durability));
 }

@@ -32,6 +32,9 @@ keyboard_string = "";
 globalvar final_boss_fight_started;
 global.final_boss_fight_started = false;
 
+globalvar invul_count;
+global.invul_count = 0;
+
 globalvar pwr;
 global.pwr = 1;
 
@@ -74,7 +77,7 @@ global.crossbow = instance_create(0, 0, crossbow_obj);
 globalvar machine_bow;
 global.machine_bow = instance_create(0, 0, machine_gun_obj);
 globalvar boots;
-global.boots = instance_create(0, 0, boots_object);
+global.boots = instance_create(0, 0, boots_obj);
 globalvar mutli_shot;
 global.mutli_shot = instance_create(0, 0, multi_shot_weapon_obj);
 globalvar explosive;

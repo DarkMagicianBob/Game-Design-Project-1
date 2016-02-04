@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>speed = 3;
 timer = 360;
+
+mon_health = 9999;
 </string>
           </argument>
         </arguments>

@@ -103,12 +103,18 @@ if(timer == 0 &amp;&amp; instance_exists(player_obj)) {
     fireball_obj.direction = point_direction(x,y,randomx, randomy);
     timer = 200;
 }
+
+if(mon_health &lt;= 0) {
+    instance_destroy();
+    score += mon_score;
+    audio_play_sound(vampire_death,10,false);
+}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="player_obj">
+    <event eventtype="4" ename="projectile_obj">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -125,30 +131,7 @@ if(timer == 0 &amp;&amp; instance_exists(player_obj)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with (other) { instance_destroy(); }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="arrow_obj">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>mon_health -= global.pwr;
+            <string>event_inherited();
 teleport = irandom(2);
 if(teleport == 0 &amp;&amp; instance_exists(player_obj)) {
     audio_play_sound(vampire_spawn,10,false);
@@ -161,12 +144,6 @@ if(teleport == 0 &amp;&amp; instance_exists(player_obj)) {
     x = teleport_x;
     y = teleport_y;
 }
-if(mon_health &lt;= 0) {
-    instance_destroy();
-    score += mon_score;
-    audio_play_sound(vampire_death,10,false);
-}
-with (other) { instance_destroy(); }
 </string>
           </argument>
         </arguments>

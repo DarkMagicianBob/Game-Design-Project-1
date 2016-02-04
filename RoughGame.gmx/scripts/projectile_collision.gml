@@ -8,7 +8,7 @@ switch(projectile.type)
     case("standard"):
         //Do standard damage to agent and delete projectile
         show_debug_message("Recognized standard collision case");
-        agent.mon_health -= projectile.projectile_power + global.pwr;
+        agent.mon_health -= projectile.projectile_power;
         with (projectile) { instance_destroy();}
         break;
         
@@ -17,7 +17,7 @@ switch(projectile.type)
         show_debug_message("Recognized knockback collision case");
         agent.x += lengthdir_x(projectile.projectile_power, projectile.direction); // testing at the moment with 20
         agent.y += lengthdir_y(projectile.projectile_power, projectile.direction);
-        agent.mon_health -= projectile.damage;
+        agent.mon_health -= projectile.projectile_power;
         with (projectile) { instance_destroy();}
         break;
         
@@ -29,9 +29,9 @@ switch(projectile.type)
         for (i = 0; i < instance_number(enemy_obj); i += 1)
         {
             enemy = instance_find(enemy_obj,i);
-            if (point_distance(enemy.x,enemy.y,projectile.x,projectile.y) < 1000)
+            if (point_distance(enemy.x,enemy.y,projectile.x,projectile.y) < projectile.projectile_power)
                {
-               enemy.mon_health -= projectile.damage;
+               enemy.mon_health -= projectile.projectile_power + global.pwr;
                show_debug_message("exploded enemy: " + string(enemy.id));
                }
         }

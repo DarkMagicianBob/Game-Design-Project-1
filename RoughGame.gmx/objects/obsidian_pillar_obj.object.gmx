@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>timer = 0;
-mon_health = 150;
+mon_health = 100;
 </string>
           </argument>
         </arguments>
@@ -85,7 +85,7 @@ with(other) {
 if (mon_health &lt;= 0) {
     instance_destroy();
     audio_play_sound(tomb_collapse,10,false);
-    score+=450;
+    score+=300;
 } else {
     audio_play_sound(hit_stone,10,false);
 }

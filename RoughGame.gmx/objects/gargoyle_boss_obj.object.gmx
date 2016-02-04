@@ -157,6 +157,14 @@ prev_y = y;
 }
 */
 //Old code homing
+
+if(mon_health &lt;= 0) {
+    instance_destroy();
+    audio_play_sound(big_zombie_death,10,false);
+    audio_play_sound(tomb_collapse,10,false);
+    score += 500;
+    }
+
 if (instance_exists(player_obj)) {
     image_angle = point_direction(x,y,player_obj.x,player_obj.y);
     direction = point_direction(x,y,player_obj.x,player_obj.y);
@@ -192,7 +200,7 @@ if (timer == 0 &amp;&amp; instance_exists(player_obj)) {
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="player_obj">
+    <event eventtype="4" ename="projectile_obj">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -209,47 +217,10 @@ if (timer == 0 &amp;&amp; instance_exists(player_obj)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>mon_health -= global.pwr;
-if(mon_health &lt;= 0) {
-    instance_destroy();
-    audio_play_sound(big_zombie_death,10,false);
-    score += 20;
-}
-with (other) { instance_destroy(); }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="arrow_obj">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>mon_health -= global.pwr;
-if(mon_health &lt;= 0) {
-    instance_destroy();
-    audio_play_sound(big_zombie_death,10,false);
-    audio_play_sound(tomb_collapse,10,false);
-    score += 500;
-}
-with (other) { instance_destroy(); }
+            <string>event_inherited();
 
 mon_speed += .05;
 motion_set(direction, mon_speed);
-
 </string>
           </argument>
         </arguments>

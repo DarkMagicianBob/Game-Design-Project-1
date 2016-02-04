@@ -26,21 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>global.stamina = global.stam_limit;
-char_speed = global.spd;
-if(global.roomnext == 29 &amp;&amp; global.final_boss_fight_started == false) {
-    freeze_timer = 180;
-} else {
-    freeze_timer = 0;
-}
-
 gamepad_set_axis_deadzone(0, 0.2);
 gamepad_set_button_threshold(0, 0.2);
-
-
-item_array[0] = global.crossbow; // Starts out with just the crossbow
-item_array[1] = global.boots;
-item_array[2] = global.machine_bow;
-item_index = 0; // indexed for the crossbow
 </string>
           </argument>
         </arguments>
@@ -228,53 +215,6 @@ item_index = 0; // indexed for the crossbow
             <string>if (global.stamina &lt; global.stam_limit) {
     global.stamina += global.stam_incr;
 }
-
-if( keyboard_check_released(ord('W'))) {
-    char_speed = global.spd;
-} else if (keyboard_check_released(ord('S'))) {
-    char_speed = global.spd;
-}
-
-if(keyboard_check(ord('W'))) {
-    motion_set(image_angle, char_speed);
-} else if (keyboard_check(ord('S'))) {
-    motion_set(image_angle, -char_speed);
-} else {
-    motion_set(image_angle, 0);
-    char_speed = global.spd;
-}
-
-//Ice Physics
-if (global.roomnext &gt; 9 &amp;&amp; global.roomnext &lt; 20) {
-    if(instance_number(ice_obj) != 0) {
-        close_ice = instance_nearest(player_obj.x, player_obj.y, ice_obj);
-        if (player_obj.x &gt;= close_ice.x-60 &amp;&amp; player_obj.x &lt;= close_ice.x  + 60 &amp;&amp;
-            player_obj.y &gt;= close_ice.y-60 &amp;&amp; player_obj.y &lt;= close_ice.y + 60) {
-                char_speed = 8;
-        }
-        
-        else if((player_obj.x &gt;= 0 &amp;&amp; player_obj.x &lt;= 200) || (player_obj.x &gt;= 600 &amp;&amp; player_obj.x &lt;= 800)) {
-            if(char_speed &lt; 8) {
-                char_speed += .05;
-            }
-        }
-        else {
-            char_speed = global.spd;
-        }    
-    }
-    else if((player_obj.x &gt;= 0 &amp;&amp; player_obj.x &lt;= 200) || (player_obj.x &gt;= 600 &amp;&amp; player_obj.x &lt;= 800)) {
-        if(char_speed &lt; 8) {
-            char_speed += .05;
-        }
-    }
-    else {
-        char_speed = global.spd;
-    }
-}
-if(global.roomnext == 29 &amp;&amp; freeze_timer &gt; 0) {
-    freeze_timer -=1;
-    global.final_boss_fight_started = true;
-}
 </string>
           </argument>
         </arguments>
@@ -300,18 +240,8 @@ var v_move = gamepad_axis_value(0, gp_axislv);
 
 if((h_move != 0) || (v_move != 0))
 {
-    x += h_move * char_speed;
-    y += v_move * char_speed;
-    if (x &gt; room_width) {
-        x = 0;
-    } else if (x &lt; 0) {
-        x = room_width;
-    }
-    if (y &gt; room_height) {
-        y = 0;
-    } else if (y &lt; 0) {
-        y = room_height;
-    }
+    x += h_move * 2;
+    y += v_move * 2;
 }
 </string>
           </argument>
@@ -532,198 +462,6 @@ alarm[1] = room_speed * 10
           <argument>
             <kind>0</kind>
             <string>1</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="fire_obj">
-      <action>
-        <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>712</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>-1</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_if_life</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>422</id>
-        <kind>1</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>224</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_another_room</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>11</kind>
-            <room>game_over_room</room>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>212</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_end_sound</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>6</kind>
-            <sound>temp_bk_music</sound>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>212</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_end_sound</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>6</kind>
-            <sound>ambience</sound>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>212</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_end_sound</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>6</kind>
-            <sound>temp_music_2</sound>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>424</id>
-        <kind>2</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>711</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_life</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>-1</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>-1</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>211</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_sound</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>6</kind>
-            <sound>ouch1</sound>
-          </argument>
-          <argument>
-            <kind>3</kind>
-            <string>0</string>
           </argument>
         </arguments>
       </action>
@@ -957,46 +695,6 @@ alarm[1] = room_speed * 10
       </action>
       <action>
         <libid>1</libid>
-        <id>212</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_end_sound</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>6</kind>
-            <sound>ambience</sound>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>212</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_end_sound</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>6</kind>
-            <sound>temp_bk_music</sound>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>424</id>
         <kind>2</kind>
         <userelative>0</userelative>
@@ -1073,7 +771,7 @@ alarm[1] = room_speed * 10
         <arguments>
           <argument>
             <kind>6</kind>
-            <sound>ouch1</sound>
+            <sound>ice_sound</sound>
           </argument>
           <argument>
             <kind>3</kind>
@@ -1094,198 +792,6 @@ alarm[1] = room_speed * 10
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-      </action>
-    </event>
-    <event eventtype="4" ename="invisible_lava">
-      <action>
-        <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>712</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>-1</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_if_life</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>422</id>
-        <kind>1</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>224</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_another_room</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>11</kind>
-            <room>game_over_room</room>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>212</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_end_sound</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>6</kind>
-            <sound>temp_bk_music</sound>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>212</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_end_sound</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>6</kind>
-            <sound>ambience</sound>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>212</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_end_sound</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>6</kind>
-            <sound>temp_music_2</sound>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>424</id>
-        <kind>2</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>711</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_life</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>-1</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>-1</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>211</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_sound</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>6</kind>
-            <sound>ouch1</sound>
-          </argument>
-          <argument>
-            <kind>3</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
       </action>
     </event>
     <event eventtype="5" enumb="68">
@@ -1305,8 +811,8 @@ alarm[1] = room_speed * 10
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle = image_angle - global.turn_speed;
-direction = direction -  global.turn_speed;
+            <string>image_angle = image_angle - 2;
+direction = direction -  2;
 </string>
           </argument>
         </arguments>
@@ -1329,31 +835,8 @@ direction = direction -  global.turn_speed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle = image_angle + global.turn_speed;
-direction = direction + global.turn_speed;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="17">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>charge_item(self, global.crossbow);
+            <string>image_angle = image_angle + 2;
+direction = direction + 2;
 </string>
           </argument>
         </arguments>
@@ -1437,7 +920,7 @@ direction = direction + global.turn_speed;
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="40">
+    <event eventtype="9" enumb="87">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -1454,16 +937,13 @@ direction = direction + global.turn_speed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Navigates through the item inventory
-
-item_index = (array_length_1d(item_array) + item_index - 1) % array_length_1d(item_array);
-show_debug_message("item index: " + string(item_index));
+            <string>motion_set(image_angle, 3);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="38">
+    <event eventtype="9" enumb="83">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -1480,36 +960,7 @@ show_debug_message("item index: " + string(item_index));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Navigates through the item inventory
-
-item_index = (item_index + 1) % array_length_1d(item_array);
-show_debug_message("item index: " + string(item_index));
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="16">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//Activates the currently equiped item
-
-activate_item(self, item_array[item_index]);
-
+            <string>motion_set(image_angle, -3);
 </string>
           </argument>
         </arguments>
@@ -1532,16 +983,20 @@ activate_item(self, item_array[item_index]);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.roomnext == 29 &amp;&amp; freeze_timer != 0) {
-    // do nothing
+            <string>if(global.stamina &gt;= 30) {
+    shot_arrow = instance_create(x,y,arrow_obj);
+    shot_arrow.speed = 20;
+    shot_arrow.direction = image_angle;
+    shot_arrow.image_angle = self.image_angle;
+    global.stamina-=30;
+    audio_play_sound(arrow_whish,10,false);
 }
-activate_item(self, item_array[item_index]);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="10" enumb="17">
+    <event eventtype="10" enumb="87">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -1558,8 +1013,30 @@ activate_item(self, item_array[item_index]);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_debug_message("Released Ctrl key");
-release_charge_item(self, global.crossbow);
+            <string>motion_set(image_angle, 0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="83">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>motion_set(image_angle, 0);
 </string>
           </argument>
         </arguments>

@@ -152,7 +152,7 @@ if (instance_exists(player_obj)) {
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="player_obj">
+    <event eventtype="4" ename="arrow_obj">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -181,7 +181,7 @@ with (other) { instance_destroy(); }
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="arrow_obj">
+    <event eventtype="4" ename="player_obj">
       <action>
         <libid>1</libid>
         <id>603</id>

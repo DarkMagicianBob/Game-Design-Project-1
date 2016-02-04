@@ -5,10 +5,10 @@ item = argument[1];
 
 if(item.charge_capable == true)
 {
-    if(global.stamina > (equiped_item.charge_cost / 60))
+    if(global.stamina > (item.charge_cost / 60))
     {
-        equiped_item.charge += (equiped_item.charge_rate / 60); // divide by 60 to convert from seconds to steps
-        global.stamina -= (equiped_item.charge_cost / 60) // convert per seconds to per steps
+        item.charge += (item.charge_rate / 60); // divide by 60 to convert from seconds to steps
+        global.stamina -= (item.charge_cost / 60) // convert per seconds to per steps
         switch(item.item_name)
         {
             case("Machine Gun"):
@@ -44,7 +44,7 @@ if(item.charge_capable == true)
                 if(item.charge > item.charge_limit)
                 {
                     item.charge = item.charge_limit;
-                    effect_create_above(ef_explosion, player_reference.x, player_reference.y, 2, c_yellow);
+                    effect_create_above(ef_spark, player_reference.x, player_reference.y, 0, c_yellow);
                     
                 }
                 if(item.charge < 1)
@@ -57,13 +57,13 @@ if(item.charge_capable == true)
     } //end stamina check
     else
     {
-        release_charge_item(self, equiped_item);
+        release_charge_item(self, item);
         show_debug_message("Not enough stamina to keep charging item.");
     }// end lack of stamina release
 }
 else
 {
-    show_debug_message("Cannot use charge on " + equiped_item.name);
+    show_debug_message("Cannot use charge on " + item.name);
 }
 
 
@@ -79,8 +79,8 @@ switch(item.item_name)
         {
             charged_arrow = activate_crossbow(player_reference, item);
             charged_arrow.type = "knockback";
-            charged_arrow.projectile_power = (item.charge / item.charge_limit) * 100;
-            charged_arrow.damage *= round((item.charge / item.charge_limit) * 4);
+            charged_arrow.projectile_power = ((item.charge / item.charge_limit) * 100) + global.pwr;
+            //charged_arrow.damage *= charged_arrow.projectile_power + global.pwr;
             charged_arrow.speed /= (item.charge / item.charge_limit) * 4; // Arbitrary speed decrease by 2
             charged_arrow.image_xscale *= (item.charge / item.charge_limit) * 2.0; // Arbitrary size increase by 2
             charged_arrow.image_yscale *= (item.charge / item.charge_limit) * 2.0; // Arbitrary size increase by 2
@@ -88,7 +88,11 @@ switch(item.item_name)
         audio_stop_sound(charge1); 
         item.charge = 0;
         break;    
-
+    
+    case("Temp_Multi_Shot"):
+        item.charge = 0;
+        break;
+        
     default:
         item.charge = 0;
         break;

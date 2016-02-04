@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -35,6 +35,8 @@ durability_lost_rate = 0; //rate of reducing durability
 durability_limit = 100; // Limit of how durable an item can be
 stamina_cost = 0; //Stanima cost of activating item (not charge cost)
 consumable = false; //probably won't need this ability with the repair cabability
+
+purchase_cost = 100; // Cost to initially buy item
 
 type = "projectile"; // default type
 

@@ -28,7 +28,7 @@
             <string>timer = 120;
 times_waited = 0;
 if(!audio_is_playing(temp_music_2)) {
-    audio_play_sound(temp_music_2,10,false);
+    audio_play_sound(temp_music_2,10,true);
 }
 </string>
           </argument>
@@ -55,7 +55,7 @@ if(!audio_is_playing(temp_music_2)) {
             <string>if(times_waited == 10) {
     room_goto(global.rooms[global.roomnext]);
 }
-if( instance_number(enemy_obj) == 0) {
+if( instance_number(enemy_obj) == 0 &amp;&amp; instance_number(tombstone_obj) == 0) {
         global.roomnext += 1;
         if(global.roomnext == 20) {
             lives_cost /= 4;
@@ -123,7 +123,6 @@ draw_rectangle(x + 300 + stam_width, y-25, x+300 + stam_width + 150 * percent, y
 draw_set_color(c_black);
 draw_rectangle(x + 300 + stam_width + 150 * percent, y-25, x + 450 + stam_width, y + 25, false);
 
-
 draw_set_color(c_white);
 draw_text(x+300+string_width("STAM: "), y, string(round(global.stamina)) + "/" + string(global.stam_limit));
 if(global.roomnext &lt;= 9) {
@@ -136,6 +135,16 @@ if(global.roomnext &lt;= 9) {
 draw_text(x+300,y,"STAM: ");
 
 //draw_text(x+300,y,"STAM: ");
+
+if(global.roomnext == 29 &amp;&amp; instance_number(final_boss_obj) == 1) {
+    show_debug_message("MOOSE");
+    draw_set_color(c_red);
+    var percent2 = round(final_boss_obj.mon_health)/666;
+    draw_rectangle(0, 790, 800 * percent2, 800, false);
+
+    draw_set_color(c_black);
+    draw_rectangle(800 * percent2, 790, 800, 800, false);
+}
 </string>
           </argument>
         </arguments>

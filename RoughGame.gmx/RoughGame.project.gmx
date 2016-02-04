@@ -64,6 +64,8 @@
     <sprite>sprites\zombie_head_homing</sprite>
     <sprite>sprites\zombie_head_med</sprite>
     <sprite>sprites\zombie_head_small</sprite>
+    <sprite>sprites\health_potion</sprite>
+    <sprite>sprites\stamina_potion</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\world1_background</background>
@@ -121,7 +123,7 @@
     <object>objects\larger_tombstone_obj</object>
     <object>objects\obsidian_pillar_obj</object>
     <objects name="items">
-      <object>objects\boots_object</object>
+      <object>objects\boots_obj</object>
       <object>objects\item_obj</object>
       <object>objects\crossbow_obj</object>
       <object>objects\multi_shot_weapon_obj</object>
@@ -132,6 +134,9 @@
       <object>objects\bullet_obj</object>
       <object>objects\arrow_obj</object>
     </objects>
+    <object>objects\stamina_potion_obj</object>
+    <object>objects\health_potion_obj</object>
+    <object>objects\xplayer_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\title_screen_room</room>

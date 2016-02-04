@@ -157,6 +157,13 @@ prev_y = y;
 }
 */
 //Old code homing
+
+if(instance_number(tombstone_obj) == 0) {
+    instance_destroy();
+    audio_play_sound(big_zombie_death,10,false);
+    score += 1000;
+}
+
 if (instance_exists(player_obj)) {
     image_angle = point_direction(x,y,player_obj.x,player_obj.y);
     direction = point_direction(x,y,player_obj.x,player_obj.y);
@@ -198,23 +205,7 @@ if(instance_number(tombstone_obj) &gt; 0) {
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="player_obj">
-      <action>
-        <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
-        <codestring></codestring>
-        <whoName>other</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-    </event>
-    <event eventtype="4" ename="arrow_obj">
+    <event eventtype="4" ename="projectile_obj">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -231,13 +222,7 @@ if(instance_number(tombstone_obj) &gt; 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(instance_number(tombstone_obj) == 0) {
-    instance_destroy();
-    audio_play_sound(big_zombie_death,10,false);
-    score += 1000;
-}
-with (other) { instance_destroy(); }
-
+            <string>event_inherited();
 </string>
           </argument>
         </arguments>
