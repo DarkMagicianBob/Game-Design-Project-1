@@ -3,67 +3,74 @@
 player_reference = argument[0];
 item = argument[1];
 
-if(item.charge_capable == true)
+if(item.durability > 0)
 {
-    if(global.stamina > (item.charge_cost / 60))
+    if(item.charge_capable == true)
     {
-        item.charge += (item.charge_rate / 60); // divide by 60 to convert from seconds to steps
-        global.stamina -= (item.charge_cost / 60) // convert per seconds to per steps
-        switch(item.item_name)
+        if(global.stamina > (item.charge_cost / 60))
         {
-            case("Machine Gun"):
-                //item.charge += (item.charge_rate / 60);
-                if(item.charge > item.charge_limit)
-                {
-                    activate_machine_gun(player_reference, item);
-                    item.charge = 0;
-                    item.durability -= item.durability_lost_rate;
-                    if(item.durability < 0)
+            item.charge += (item.charge_rate / 60); // divide by 60 to convert from seconds to steps
+            global.stamina -= (item.charge_cost / 60) // convert per seconds to per steps
+            switch(item.item_name)
+            {
+                case("Machine Gun"):
+                    //item.charge += (item.charge_rate / 60);
+                    if(item.charge > item.charge_limit)
                     {
-                        item.durability = 0;
+                        activate_machine_gun(player_reference, item);
+                        item.charge = 0;
+                        item.durability -= item.durability_lost_rate;
+                        if(item.durability < 0)
+                        {
+                            item.durability = 0;
+                        }
                     }
-                }
-                break;
-                
-            /*case("Speed Boots"):
-                //item.charge += (item.charge_rate / 60);
-                player_reference.speed = item.charge;
-                if(item.charge > item.charge_limit)
-                {
-                    player_reference.speed = item.charge;
-                    item.durability -= item.durability_lost_rate;
-                    if(item.durability < 0)
-                    {
-                        item.durability = 0;
-                    }
-                }
-                break;*/
-        
-            default:
-                //item.charge += (item.charge_rate / 60); // divide by 60 to convert from seconds to steps
-                if(item.charge > item.charge_limit)
-                {
-                    item.charge = item.charge_limit;
-                    effect_create_above(ef_spark, player_reference.x, player_reference.y, 0, c_yellow);
+                    break;
                     
-                }
-                if(item.charge < 1)
-                {
-                    audio_play_sound(charge1,10,false);
-                }
-                show_debug_message(item.item_name + " charge: " + string(item.charge));
-                break;
-        } //end switch
-    } //end stamina check
+                /*case("Speed Boots"):
+                    //item.charge += (item.charge_rate / 60);
+                    player_reference.speed = item.charge;
+                    if(item.charge > item.charge_limit)
+                    {
+                        player_reference.speed = item.charge;
+                        item.durability -= item.durability_lost_rate;
+                        if(item.durability < 0)
+                        {
+                            item.durability = 0;
+                        }
+                    }
+                    break;*/
+            
+                default:
+                    //item.charge += (item.charge_rate / 60); // divide by 60 to convert from seconds to steps
+                    if(item.charge > item.charge_limit)
+                    {
+                        item.charge = item.charge_limit;
+                        effect_create_above(ef_spark, player_reference.x, player_reference.y, 0, c_yellow);
+                        
+                    }
+                    if(item.charge < 1)
+                    {
+                        audio_play_sound(charge1,4,false);
+                    }
+                    show_debug_message(item.item_name + " charge: " + string(item.charge));
+                    break;
+            } //end switch
+        } //end stamina check
+        else
+        {
+            release_charge_item(self, item);
+            show_debug_message("Not enough stamina to keep charging item.");
+        }// end lack of stamina release
+    }
     else
     {
-        release_charge_item(self, item);
-        show_debug_message("Not enough stamina to keep charging item.");
-    }// end lack of stamina release
+        show_debug_message("Cannot use charge on " + item.name);
+    }
 }
 else
 {
-    show_debug_message("Cannot use charge on " + item.name);
+    show_debug_message(string(item.item_name) + " is out of durability.");
 }
 
 

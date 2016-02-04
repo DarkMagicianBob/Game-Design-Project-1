@@ -32,6 +32,7 @@
 speed = 10;
 direction = 0;
 projectile_power = 0; // might get rid of damage and just keep power
+effect = false;
 
 // other possible effects
 type = "standard" // standard, knockback, explosion, debuff, etc

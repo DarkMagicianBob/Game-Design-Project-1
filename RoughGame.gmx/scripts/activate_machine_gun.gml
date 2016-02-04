@@ -8,6 +8,7 @@ with(player_reference)
     bullet.projectile_power = global.pwr;
     bullet.direction = image_angle;
     bullet.image_angle = self.image_angle;
+    bullet.effect = true;
     audio_play_sound(arrow_whish,10,false);
     show_debug_message("durability: " + string(gun.durability));
 }

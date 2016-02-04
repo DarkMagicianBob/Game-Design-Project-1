@@ -59,8 +59,6 @@
     <instance objName="zombie_head_obj" x="576" y="608" name="inst_8E91DF50" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="zombie_head_obj" x="32" y="256" name="inst_35C590C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="zombie_head_obj" x="384" y="352" name="inst_800EB34B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="health_potion_obj" x="384" y="448" name="inst_8F691A7D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="stamina_potion_obj" x="448" y="480" name="inst_3FB415FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

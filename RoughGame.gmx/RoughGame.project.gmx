@@ -35,6 +35,9 @@
     <sound>sound\zombie_splat</sound>
     <sound>sound\blink1</sound>
     <sound>sound\charge1</sound>
+    <sound>sound\fire_stage_music</sound>
+    <sound>sound\first_stage_music</sound>
+    <sound>sound\ice_stage_music</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\final_boss</sprite>

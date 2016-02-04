@@ -27,9 +27,11 @@
             <kind>1</kind>
             <string>timer = 120;
 times_waited = 0;
-if(!audio_is_playing(temp_music_2)) {
-    audio_play_sound(temp_music_2,10,true);
+/*
+if(!audio_is_playing(fire_stage_music)) {
+    audio_play_sound(fire_stage_music,10,true);
 }
+*/
 </string>
           </argument>
         </arguments>
@@ -79,6 +81,35 @@ else if( instance_number(player_obj) == 0) {
             times_waited = 0;
             timer = 120;
         }
+    }
+}
+
+if(!audio_is_playing(fire_stage_music)) {
+    audio_play_sound(fire_stage_music,10,true);
+}
+
+if(global.roomnext &lt;= 9) {
+    if(!audio_is_playing(first_stage_music)) 
+    {
+        audio_play_sound(first_stage_music,10,true);
+    }
+} else if(global.roomnext &gt; 9 &amp;&amp; global.roomnext &lt; 20) {
+    if(audio_is_playing(first_stage_music)) 
+    {
+        audio_stop_sound(first_stage_music);
+    }
+    if(!audio_is_playing(ice_stage_music)) 
+    {
+        audio_play_sound(ice_stage_music,10,true);
+    }
+} else {
+    if(audio_is_playing(ice_stage_music)) 
+    {
+        audio_stop_sound(ice_stage_music);
+    }
+    if(!audio_is_playing(fire_stage_music)) 
+    {
+        audio_play_sound(fire_stage_music,10,true);
     }
 }
 </string>
