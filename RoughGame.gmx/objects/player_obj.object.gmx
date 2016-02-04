@@ -1353,7 +1353,7 @@ direction = direction + global.turn_speed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>charge_item(self, global.crossbow);
+            <string>charge_item(self, item_array[item_index]);
 </string>
           </argument>
         </arguments>
